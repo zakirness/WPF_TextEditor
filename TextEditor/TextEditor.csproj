@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="cnf.png" />
+    <None Remove="cut.png" />
+    <None Remove="icon.png" />
+    <None Remove="of.png" />
+    <None Remove="paste.png" />
+    <None Remove="sf.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="cnf.png" />
+    <Resource Include="cut.png" />
+    <Resource Include="icon.png" />
+    <Resource Include="of.png" />
+    <Resource Include="paste.png" />
+    <Resource Include="sf.png" />
+  </ItemGroup>
+
+</Project>

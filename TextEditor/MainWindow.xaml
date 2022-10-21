@@ -1,0 +1,83 @@
+﻿<Window Icon="/icon.png" x:Class="TextEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TextEditor"
+        mc:Ignorable="d"
+        Title="Text Editor | @zakirness" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DockPanel VerticalAlignment="Center">
+            
+            <Menu Background="Azure" DockPanel.Dock="Top">
+                
+                <MenuItem x:Name="menuFile" Header="File">
+                    <MenuItem x:Name="createNewFile" Header="Create new file" Click="CreateNewFile_Click">
+                        <MenuItem.Icon>
+                            <Image Source="/cnf.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    
+                    <MenuItem x:Name="openFile" Header="Open file" Click="OpenFile_Click">
+                        <MenuItem.Icon>
+                            <Image Source="/of.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    
+                    <MenuItem x:Name="saveFile" Header="Save file" Click="SaveFile_Click" InputGestureText="CTRL + S">
+                        <MenuItem.Icon>
+                            <Image Source="/sf.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                
+                <MenuItem x:Name="menuEdit" Header="Edit">
+                    <MenuItem x:Name="selectFont" Header="Font">
+                        <MenuItem x:Name="fontTimesNewRoman" Header="Times New Roman" IsCheckable="True" StaysOpenOnClick="True" Click="FontTimesNewRoman_Click"/>
+                        <MenuItem x:Name="fontVerdana" Header="Verdana" IsCheckable="False" StaysOpenOnClick="True" Click="FontVerdana_Click"/>
+                    </MenuItem>
+                    
+                    <Separator/>
+
+                    <MenuItem x:Name="copyFont" Header="Copy" Command="ApplicationCommands.Copy" InputGestureText="CTRL + C"></MenuItem>
+                    <MenuItem x:Name="pasteFont" Header="Paste" Command="ApplicationCommands.Paste" InputGestureText="CTRL + V"></MenuItem>
+                    <MenuItem x:Name="cutFont" Header="Cut" Command="ApplicationCommands.Cut" InputGestureText="CTRL + X"></MenuItem>
+                </MenuItem>
+            </Menu>
+
+            <ToolBarTray DockPanel.Dock="Top">
+                <ToolBar>
+
+                    <Button x:Name="buttonSave" ToolTip="Save file" Click="SaveFile_Click">
+                        <Image Height="25" Source="/sf.png"/>
+                    </Button>
+
+                    <Button x:Name="buttonOpen" ToolTip="Open file" Click="OpenFile_Click">
+                        <Image Height="25" Source="/of.png"/>
+                    </Button>
+
+                    <Button x:Name="buttonCut" ToolTip="Cut text" Command="ApplicationCommands.Cut">
+                        <Image Height="25" Source="/cut.png"/>
+                    </Button>
+
+                    <Button x:Name="buttonPaste" ToolTip="Paste text" Command="ApplicationCommands.Paste">
+                        <Image Height="25" Source="/paste.png"/>
+                    </Button>
+
+                    <Label>Font Size: </Label>
+                    <ComboBox x:Name="selectFontSize" SelectionChanged="SelectFontSize_SelectionChanged" Width="50">
+                        <ComboBoxItem>10px</ComboBoxItem>
+                        <ComboBoxItem IsSelected="True">14px</ComboBoxItem>
+                        <ComboBoxItem>16px</ComboBoxItem>
+                        <ComboBoxItem>20px</ComboBoxItem>
+                        <ComboBoxItem>24px</ComboBoxItem>
+                        <ComboBoxItem>32px</ComboBoxItem>
+                    </ComboBox>
+                </ToolBar>
+            </ToolBarTray>
+
+            <TextBox x:Name="textBox" Margin="0 0 0 0" Height="410" Width="796" FontSize="14"/>
+
+        </DockPanel>
+    </Grid>
+</Window>
